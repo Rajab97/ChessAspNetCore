@@ -1,0 +1,23 @@
+﻿@model ChessWebAspNetCore.Models.Figures
+
+@{
+    ViewData["Title"] = "DeleteFigure";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2><a asp-action="Index" class=" backToListButton"><i class="fas fa-angle-double-left"></i></a> @Model.Name</h2>
+
+<div>
+  
+   
+ 
+            <img src="~/images/@Model.Photo" style="width:150px; height:auto; margin-bottom:10px;" alt="@Model.Name" />
+     
+    
+    <form asp-action="DeleteFigure" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-primary" /> 
+   
+    </form>
+</div>

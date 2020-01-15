@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ChessWebAspNetCore.Models.DirectionDescription>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Style{
+    <style>
+        tr td{
+            padding:10px 0px;
+        }
+    </style>
+
+}
+
+    <div class="container">
+        <div class="row">
+            <h2 style="width:75%; margin:0 auto; margin-top:20px; margin-bottom:10px;">Direction Descriptions</h2>
+            <div class="buttonsRow col-12">
+                <div style="width:75%; margin:0 auto;" class="clearfix">
+                    <a class="btn btn-primary" style="float:right;margin-bottom:15px;" asp-action="Create"><i class="far fa-plus-square"></i></a>
+                </div>
+            </div>
+            <div class="col-md-12"></div>
+            <div class="col-12">
+                <table style="width:75%;margin:0 auto; " class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RowStep)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ColumnStep)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DiagonalMovement)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PerpendicularMovement)
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="width:25%;" class="centeredContainer">
+                                    <span class="centeredElement">@(item.RowStep < 0 ? item.RowStep * -1 : item.RowStep) step @(item.RowStep == 0 ? "" : item.RowStep > 0 ? "Up" : "Down")</span>
+                                </td>
+                                <td style="width:25%;" class="centeredContainer">
+                                    <span class="centeredElement">@(item.ColumnStep < 0 ? item.ColumnStep * -1 : item.ColumnStep) step @(item.ColumnStep == 0 ? "" : item.ColumnStep > 0 ? "Right" : "Left")</span>
+                                </td>
+                                <td style="width:10%; text-align:center; font-size:large">
+                                    <i style="color: @(item.DiagonalMovement == true ? @"green" : "red");" class="@(item.DiagonalMovement == true ? "far fa-calendar-check" : "fas fa-calendar-times")"></i>
+                                </td>
+                                <td style="width:10%; text-align:center; font-size:large">
+                                    <i style="color: @(item.PerpendicularMovement == true ? @"green" : "red");" class="@(item.PerpendicularMovement == true ? "far fa-calendar-check" : "fas fa-calendar-times")"></i>
+                                </td>
+                                <td class="centeredContainer" style="width:30%;">
+                                    <div class="centeredElement">
+                                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Edit</a>
+                                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+

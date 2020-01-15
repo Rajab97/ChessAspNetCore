@@ -1,0 +1,8 @@
+C:\Users\povil\source\repos\ChessWebAspNetCore\ChessWebAspNetCore\obj\Debug\netcoreapp3.0\ChessWebAspNetCore.csprojAssemblyReference.cache
+C:\Users\povil\source\repos\ChessWebAspNetCore\ChessWebAspNetCore\obj\Debug\netcoreapp3.0\ChessWebAspNetCore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\povil\source\repos\ChessWebAspNetCore\ChessWebAspNetCore\obj\Debug\netcoreapp3.0\ChessWebAspNetCore.AssemblyInfoInputs.cache
+C:\Users\povil\source\repos\ChessWebAspNetCore\ChessWebAspNetCore\obj\Debug\netcoreapp3.0\ChessWebAspNetCore.AssemblyInfo.cs
+C:\Users\povil\source\repos\ChessWebAspNetCore\ChessWebAspNetCore\obj\Debug\netcoreapp3.0\ChessWebAspNetCore.TagHelpers.input.cache
+C:\Users\povil\source\repos\ChessWebAspNetCore\ChessWebAspNetCore\obj\Debug\netcoreapp3.0\ChessWebAspNetCore.TagHelpers.output.cache
+C:\Users\povil\source\repos\ChessWebAspNetCore\ChessWebAspNetCore\obj\Debug\netcoreapp3.0\ChessWebAspNetCore.dll
+C:\Users\povil\source\repos\ChessWebAspNetCore\ChessWebAspNetCore\obj\Debug\netcoreapp3.0\ChessWebAspNetCore.pdb

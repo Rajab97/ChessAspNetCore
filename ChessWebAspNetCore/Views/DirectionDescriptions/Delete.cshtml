@@ -1,0 +1,42 @@
+﻿@model ChessWebAspNetCore.Models.DirectionDescription
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><a asp-action="Index" class=" backToListButton"><i class="fas fa-angle-double-left"></i></a> Delete Description</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RowStep)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RowStep)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ColumnStep)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ColumnStep)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DiagonalMovement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiagonalMovement)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PerpendicularMovement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PerpendicularMovement)
+        </dd>
+      
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+    </form>
+</div>

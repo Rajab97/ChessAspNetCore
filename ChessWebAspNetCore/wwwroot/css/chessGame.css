@@ -1,0 +1,44 @@
+﻿body {
+}
+.gameContainer{
+    width:80%;
+    border:1px solid black;
+    position:relative;
+    z-index:1;
+
+}
+.gameContainer .gameSquare {
+    width: 12.5%;
+    height: 12.5%;
+    float:left;
+    
+}
+.gameContainer .gameSquare.black{
+    background-color:black;
+}
+.gameContainer .gameSquare.white {
+    background-color: white;
+}
+.chessFiguresContainer {
+    width: calc(33% - 20px);
+    max-height: 200px;
+    margin: 5px;
+    float:left;
+}
+.chessFiguresContainer .chessFigures {
+   
+    width:100%;
+    height:auto;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: box-shadow .2s linear;
+}
+.chessFiguresContainer .chessFigures:hover {
+    -webkit-box-shadow: -5px 1px 36px -4px rgba(0,0,0,0.58);
+    -moz-box-shadow: -5px 1px 36px -4px rgba(0,0,0,0.58);
+    box-shadow: -5px 1px 36px -4px rgba(0,0,0,0.58);
+}
+.chessFiguresContainer .chessFigures.figureOnDrag {
+    background-color: transparent;
+}

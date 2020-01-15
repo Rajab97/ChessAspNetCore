@@ -1,0 +1,73 @@
+﻿@model ChessWebAspNetCore.Models.DirectionDescription
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-xs-offset-1 col-xs-10 col-lg-offset-4 col-lg-4">
+            <h2 ><a asp-action="Index" class=" backToListButton"><i class="fas fa-angle-double-left"></i></a> Edit Direction</h2>
+            <div class="row">
+                <div class="col-12">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label asp-for="RowStep" class="control-label"></label>
+                            <input asp-for="RowStep" class="form-control" />
+                            <span asp-validation-for="RowStep" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ColumnStep" class="control-label"></label>
+                            <input asp-for="ColumnStep" class="form-control" />
+                            <span asp-validation-for="ColumnStep" class="text-danger"></span>
+                        </div>
+                        <div class="clearfix">
+                            <div class="form-group form-check left"  style="margin-right:25px;">
+                                <label class="form-check-label cursor check" asp-for="DiagonalMovement">
+                                    @{
+                                        if (Model.DiagonalMovement == true)
+                                        {
+                                            <input asp-for="DiagonalMovement" type="checkbox" class="option-input checkbox" checked />
+                                        }
+                                        else
+                                        {
+                                            <input asp-for="DiagonalMovement" type="checkbox" class="option-input checkbox" />
+                                        }
+                                    }
+
+                                    Moved Diagonally
+                                </label>
+                                <span asp-validation-for="DiagonalMovement" class="text-danger"></span>
+                            </div>
+                            <div class="form-group form-check left">
+                                <label class="form-check-label cursor check" asp-for="PerpendicularMovement">
+                                    @{
+                                        if (Model.PerpendicularMovement == true)
+                                        {
+                                            <input asp-for="PerpendicularMovement" type="checkbox" class="option-input checkbox " checked />
+                                        }
+                                        else
+                                        {
+                                            <input asp-for="PerpendicularMovement" type="checkbox" class="option-input checkbox " />
+                                        }
+                                    }
+
+                                    Moved Perpendicularly
+
+                                </label>
+                                <span asp-validation-for="PerpendicularMovement" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group clearfix">
+                            <input type="submit" value="Save" class="btn btn-success right" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,167 @@
+﻿@model ChessWebAspNetCore.Models.DTO.EditFigureDto
+
+@{
+    ViewData["Title"] = "EditFigure";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Style{
+    <style>
+        .previousImage {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-xs-offset-0 col-xs-12 col-lg-offset-3 col-lg-6">
+            <h2><a asp-action="Index" class=" backToListButton"><i class="fas fa-angle-double-left"></i></a> Edit Figure</h2>
+
+
+            <hr />
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12">
+                    <div class="form d-flex justify-content-between">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-3">
+                                <div class="image">
+                                    <img class="previousImage" src="~/images/@Model.PreviousPhoto">
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
+                                <form asp-action="EditFigure" method="post" enctype="multipart/form-data" class="editFigure">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" asp-for="Id" />
+                                    <input type="hidden" asp-for="PreviousPhoto" />
+                                    <div class="form-group">
+
+                                        <label asp-for="Name" class="control-label"></label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Photo" class="control-label"></label>
+                                        <div class="inputFileContainer clearfix">
+                                            <input type="file" asp-for="Photo" value="" hidden />
+                                            <div class="placeHolderContainer">
+                                                <strong class="filePlaceHoler">Choose File</strong>
+                                            </div>
+                                            <a class="chooseButton">Upload</a>
+                                        </div>
+                                        <span asp-validation-for="Photo" class="text-danger"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="clearfix">
+                                                <label class="control-label">Directions</label>
+                                                @*<a class="btn btn-primary right addDirection" data-figure-Id="@Model.Figures.Id" style="margin-bottom:5px;"><i class="far fa-plus-square"></i></a>*@
+                                            </div>
+
+                                            <table class="table table-bordered directionTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" style="width:75%;">Name</th>
+                                                        <th scope="col" style="width:25%;">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row" class="centeredContainer">
+                                                            <select class="form-control availableDirections">
+                                                                <option>Choose</option>
+                                                                @if (Model.AvailableDirection != null)
+                                                                {
+                                                                    @foreach (Directions item in Model.AvailableDirection)
+                                                                    {
+                                                                        <option value="@item.Id">@item.Name</option>
+                                                                    }
+                                                                }
+
+                                                            </select>
+                                                        </th>
+
+                                                        <td class="centeredContainer" style="padding:25px 0px;">
+
+                                                            <a class="btn btn-primary addDirection centeredElement">Add</a>
+
+                                                        </td>
+                                                    </tr>
+                                                    @if (Model.FigureToDirections != null)
+                                                    {
+                                                        foreach (FigureToDirections figure in Model.FigureToDirections)
+                                                        {
+                                                            <tr figureId="@figure.Direction.Id">
+                                                                <th scope="row" class="centeredContainer"><span class="centeredElement">@figure.Direction.Name</span></th>
+
+                                                                <td class="centeredContainer" style="padding:25px 0px;">
+
+                                                                    <a class="btn btn-danger deleteDirection centeredElement" data-direction-id="@figure.DirectionId"><i class="fas fa-trash-alt"></i></a>
+
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="form-group formMainButtons">
+                                        <input type="submit" value="Save" class="btn btn-success" />
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+
+    <script src="~/js/FigureEdit.js"></script>
+    @*<script>
+
+            $(document).ready(function () {
+                $(".deleteDirection").on("click", function () {
+
+
+                    var button = $(this);
+                    if (confirm("Are you sure to delete this direction")) {
+                        $.ajax({
+                            url: "/API/FigureConfiguration/" + button.attr("data-direction-id"),
+                            method: "DELETE",
+                            success: function () {
+                                console.log("Success");
+                                button.parents("td").parents("tr").remove();
+                            }
+
+
+
+                        })
+                    }
+                })
+            })
+
+
+        </script>*@
+
+}
+
+
+
+
+
+
+
+

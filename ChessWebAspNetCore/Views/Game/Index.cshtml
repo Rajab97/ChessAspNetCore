@@ -1,0 +1,43 @@
+﻿@model ChessWebAspNetCore.Models.DTO.GameIndexDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Style{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="~/css/chessGame.css" rel="stylesheet" />
+
+}
+<h2>Game Zone</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 clearfix">
+            @foreach (Figures item in Model.Figures)
+            {
+            <div class="chessFiguresContainer">
+                <img class="chessFigures draggable" figure-id="@item.Id" src="~/images/@item.Photo" alt="@item.Name" />
+            </div>
+                
+            }
+        </div>
+        <div class="col-md-8">
+            <div class="gameContainer clearfix">
+                @for (int i = 8; i >= 1; i--)
+                {
+                    @for (int j = 1; j <= 8; j++)
+                    {
+                        <div class="@((i+j)%2==0?"black":"white") gameSquare droppable centeredContainer" row="@i" col="@j"></div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/chessGame.js"></script>
+}

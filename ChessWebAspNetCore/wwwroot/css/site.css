@@ -1,0 +1,211 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+img.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+thead tr th{
+    text-align:center;
+}
+tbody tr th.centered {
+    text-align: center;
+}
+
+.centeredContainer {
+    height:auto;
+    position: relative;
+}
+
+.centeredContainer .centeredElement {
+    margin: 0;
+ 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+.centeredVerticallyText {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    
+    transform: translateY(-50%)
+}
+.MyTableHeightMin tbody tr td{
+    height:50px;
+}
+.tableButton {
+    width: 35px;
+    height: 35px;
+    font-size: 15px;
+}
+h1 .backToListButton{
+    font-size:30px;
+}
+.backToListButton{
+    margin-right:5px;
+}
+.backToListButton:hover{
+    transition:all .5s ease;
+}
+.inputFileContainer {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #fff;
+    padding-left: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.inputFileContainer:hover {
+    transition:all .3s ease;
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.inputFileContainer input[type="file"] {
+    display: none;
+}
+.inputFileContainer .placeHolderContainer {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left:0;
+}
+.inputFileContainer .placeHolderContainer .filePlaceHoler {
+    color: #6c757d;
+    opacity: .7;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.inputFileContainer .chooseButton {
+    float: right;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration:none;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 0px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 0px 4px 4px 0px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+    .inputFileContainer .chooseButton:hover {
+        transition: all .3s ease;
+        color: #fff;
+        background-color: #286090;
+        border-color: #204d74;
+    }
+    
+    /*.tableButtonsCentered {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    height: 100%;
+    min-height: 100%;
+    flex: 1 1 1px;
+}
+.tableButtonsCentered a{
+    margin:0px 3px;
+}*/
+    /* Hide/rearrange for smaller screens */
+    @media screen and (max-width: 767px) {
+        /* Hide captions */
+        .carousel-caption {
+    display: none;
+}
+}
+
+.formMainButtons{
+    float:right;
+}
+.detailsInfo{
+    padding:10px 0px;
+    font-size:medium;
+}
+.detailsInfo .detailsInfoPropName {
+    font-weight:bold;
+    margin-right:5px;
+    color:black;
+}
+
+.right {
+    float: right;
+}
+.left{
+    float:left;
+}
+.cursor{
+    cursor:pointer;
+}
+.greenChircleElement{
+    z-index:10;
+    width:25%;
+    height:25%;
+    background-color:green;
+    border-radius:100%;
+}
+.filledWithOtherFigure{
+    background-color:red !important;
+}

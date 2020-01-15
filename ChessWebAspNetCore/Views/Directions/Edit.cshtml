@@ -1,0 +1,128 @@
+﻿@model ChessWebAspNetCore.Models.DTO.EditDirectionDTO
+@using ChessWebAspNetCore.Helpers.TextHelper
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-3 col-md-offset-6 col-xs-offset-0 col-xs-`1 col-lg-offset-3 col-lg-6">
+            <h2><a asp-action="Index" class=" backToListButton"><i class="fas fa-angle-double-left"></i></a> Edit Direction</h2>
+            <div class="row">
+                <div class="col-12">
+                    <form asp-action="Edit" class="clearfix editDirection">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="clearfix">
+                                    <label class="control-label">Directions</label>
+                                    @*<a class="btn btn-primary right addDirection" data-figure-Id="@Model.Figures.Id" style="margin-bottom:5px;"><i class="far fa-plus-square"></i></a>*@
+                                </div>
+
+                                <table class="table table-bordered directionTable">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Row Step
+                                            </th>
+                                            <th>
+                                                Column Step
+                                            </th>
+                                            <th>
+                                                Diagonal
+                                            </th>
+                                            <th>
+                                                Perpendicular
+                                            </th>
+                                            <th scope="col" style="width:25%;">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @if (Model.DirectionToDescriptions != null)
+                                        {
+                                            foreach (DirectionToDescription item in Model.DirectionToDescriptions)
+                                            {
+                                                <tr destinationId="@item.Id">
+                                                    <td style="width:25%;" class="centeredContainer">
+                                                        <span class="centeredElement">@(item.Description.RowStep < 0 ? item.Description.RowStep * -1 : item.Description.RowStep) step @(item.Description.RowStep == 0 ? "" : item.Description.RowStep > 0 ? "Up" : "Down")</span>
+                                                    </td>
+                                                    <td style="width:25%;" class="centeredContainer">
+                                                        <span class="centeredElement">@(item.Description.ColumnStep < 0 ? item.Description.ColumnStep * -1 : item.Description.ColumnStep) step @(item.Description.ColumnStep == 0 ? "" : item.Description.ColumnStep > 0 ? "Right" : "Left")</span>
+                                                    </td>
+                                                    <td style="width:10%; text-align:center; font-size:large">
+                                                        <i style="color:@(item.Description.DiagonalMovement == true ? @"green" : "red");" class="@(item.Description.DiagonalMovement == true ? "far fa-calendar-check" : "fas fa-calendar-times")"></i>
+                                                    </td>
+                                                    <td style="width:10%; text-align:center; font-size:large">
+                                                        <i style="color:@(item.Description.PerpendicularMovement == true ? @"green" : "red");" class="@(item.Description.PerpendicularMovement == true ? "far fa-calendar-check" : "fas fa-calendar-times")"></i>
+                                                    </td>
+                                                    <td class="centeredContainer" style="padding:25px 0px;">
+
+                                                        <a class="btn btn-danger deleteDescription centeredElement" data-description-id="@item.DescriptionId"><i class="fas fa-trash-alt"></i></a>
+
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                        <tr>
+
+                                            <th scope="row" class="centeredContainer" style="width:75%;" colspan="4">
+                                                <select class="form-control availableDestinations">
+
+                                                    @if (Model.AvailableDescriptions != null)
+                                                    {
+                                                        <option> Diogonal &nbsp | &nbsp  Perpendicular &nbsp | &nbsp  Column Step  &nbsp | &nbsp Row Step   </option>
+                                                        @foreach (DirectionDescription item in Model.AvailableDescriptions)
+                                                        {
+                                                            string rowValue = ((item.RowStep < 0) ? item.RowStep * -1 : item.RowStep) + " step " + ((item.RowStep == 0) ? "" : item.RowStep > 0 ? "Up" : "Down");
+                                                            string columnValue = (item.ColumnStep < 0 ? item.ColumnStep * -1 : item.ColumnStep) + " step " + (item.ColumnStep == 0 ? "   " : item.ColumnStep > 0 ? "Right" : "Left");
+                                                            string perpendicularValue = (item.PerpendicularMovement == true ? "true" : "false");
+                                                            string diagonalValue = (item.DiagonalMovement == true ? "true" : "false");
+
+                                                            <option value="@item.Id" destination-Row="@rowValue" destination-Column="@columnValue" destination-Diagonal="@diagonalValue" destination-Perpendicular="@perpendicularValue">
+
+
+                                                                @(item.DiagonalMovement == true ? "Can" : "Can't") &nbsp  &nbsp &nbsp &nbsp|&nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                                @(item.PerpendicularMovement == true ? "Can" : "Can't")&nbsp  &nbsp &nbsp &nbsp &nbsp  |&nbsp  &nbsp &nbsp &nbsp
+                                                                @columnValue  &nbsp  &nbsp|&nbsp  &nbsp
+                                                                @rowValue
+                                                            </option>
+                                                        }
+                                                    }
+
+                                                </select>
+                                            </th>
+
+                                            <td class="centeredContainer" style="padding:25px 0px; width:25%;">
+
+                                                <a class="btn btn-primary addDescription centeredElement">Add</a>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group formMainButtons">
+                            <input type="submit" value="Save" class="btn btn-success" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+<script src="~/js/DirectionEdit.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
