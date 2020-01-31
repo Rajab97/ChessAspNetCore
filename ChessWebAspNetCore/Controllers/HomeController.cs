@@ -53,11 +53,12 @@ namespace ChessWebAspNetCore.Controllers
 
             try
             {
-                    Figures figure = await CreateFigureDto.GetFigureFromDtoAsync(figureDto);
-                    _context.Add(figure);
-                    await _context.SaveChangesAsync();
-                
-
+               
+                Figures figure = await CreateFigureDto.GetFigureFromDtoAsync(figureDto);
+                List<FigureToIndex> figureToIndixes = CreateFigureDto.GetFigureToIndexes(figureDto, _context, figure);
+                _context.Add(figure);
+                _context.FigureToIndex.AddRange(figureToIndixes);
+                await _context.SaveChangesAsync();
             }
             catch(FormatException)
             {
@@ -139,6 +140,37 @@ namespace ChessWebAspNetCore.Controllers
                         }
                     }
                 }
+
+                if (figureDto.Indexes != null)
+                {
+                    IEnumerable<string> rowAndColumns = figureDto.Indexes.Distinct();
+                    short Row  = 0;
+                    short Column = 0;
+                    foreach (string rowColPair in rowAndColumns)
+                    {
+                        if (Int16.TryParse(rowColPair.Split('-')[0], out Row) && Int16.TryParse(rowColPair.Split('-')[1], out Column))
+                        {
+                            if ((Row > 0 && Row < 9) && (Column > 0 && Column < 9))
+                            {
+                                TableIndexes tableIndexes = await _context.TableIndexes.FirstOrDefaultAsync(m => m.RowIndex == Row && m.ColumnIndex == Column);
+                                FigureToIndex figureToIndex = _context.FigureToIndex.FirstOrDefault(m => m.Index.RowIndex == Row && m.Index.ColumnIndex == Column);
+                                if (figureToIndex == null && tableIndexes != null)
+                                {
+                                    FigureToIndex newFigureToIndex = new FigureToIndex()
+                                    {
+                                        FigureId = figureDto.Id,
+                                        IndexId = tableIndexes.Id
+                                    };
+                                    _context.FigureToIndex.Add(newFigureToIndex);
+                                }
+                                else
+                                {
+                                    _context.FigureToIndex.Remove(figureToIndex);
+                                }
+                            }
+                        }
+                    }
+                }
           
                 _context.Update(figures);
                 await _context.SaveChangesAsync();
@@ -162,7 +194,7 @@ namespace ChessWebAspNetCore.Controllers
                     ModelState.AddModelError("exception", $"Your request is not confirmed");
                     return View(figureDto);
                 }
-                catch(Exception)
+                catch(Exception e)
                 {
                     return View(figureDto);
                 }

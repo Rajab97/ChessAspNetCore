@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChessWebAspNetCore.Models
 {
@@ -10,16 +8,15 @@ namespace ChessWebAspNetCore.Models
         public Figures()
         {
             FigureToDirections = new HashSet<FigureToDirections>();
+            FigureToIndex = new HashSet<FigureToIndex>();
         }
 
         public byte Id { get; set; }
-        [Required]
-        [StringLength(20)]
         public string Name { get; set; }
-        [StringLength(300)]
         public string Photo { get; set; }
+        public bool? WhiteOrBlack { get; set; }
 
-        [InverseProperty("Figure")]
         public ICollection<FigureToDirections> FigureToDirections { get; set; }
+        public ICollection<FigureToIndex> FigureToIndex { get; set; }
     }
 }

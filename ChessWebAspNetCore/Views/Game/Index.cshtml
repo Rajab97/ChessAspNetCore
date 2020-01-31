@@ -8,29 +8,40 @@
     <link href="~/css/chessGame.css" rel="stylesheet" />
 
 }
-<h2>Game Zone</h2>
+<h2 style="text-align:center;">Game Zone <a href="#" class="btn btn-success StartGame" style="cursor:pointer;">Start Game</a></h2>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4 clearfix">
-            @foreach (Figures item in Model.Figures)
+
+        <div class="col-md-2 playerOneSide">
+            @foreach (FigureToIndex item in Model.FigureToIndixes.Where(m => m.Figure.WhiteOrBlack == true))
             {
-            <div class="chessFiguresContainer">
-                <img class="chessFigures draggable" figure-id="@item.Id" src="~/images/@item.Photo" alt="@item.Name" />
-            </div>
-                
+
+                <img class="chessFigures draggable displayNone whiteTeam activePlayer" figure-id="@item.Figure.Id" currentItemId="@item.Id" rowId="@item.Index.RowIndex" columnId="@item.Index.ColumnIndex" src="~/images/@item.Figure.Photo" alt="@item.Figure.Name" />
+
             }
         </div>
         <div class="col-md-8">
-            <div class="gameContainer clearfix">
+            <div class="gameContainer clearfix" style="margin:0 auto;">
                 @for (int i = 8; i >= 1; i--)
                 {
                     @for (int j = 1; j <= 8; j++)
                     {
-                        <div class="@((i+j)%2==0?"black":"white") gameSquare droppable centeredContainer" row="@i" col="@j"></div>
+
+                        <div class="@((i+j)%2==0?"black":"white") gameSquare droppable centeredContainer" row="@i" col="@j">
+
+                        </div>
                     }
                 }
             </div>
+        </div>
+        <div class="col-md-2 playerSecondSide">
+            @foreach (FigureToIndex item in Model.FigureToIndixes.Where(m => m.Figure.WhiteOrBlack == false))
+            {
+
+                <img class="chessFigures draggable displayNone blackTeam activePlayer" figure-id="@item.Figure.Id" currentItemId="@item.Id" rowId="@item.Index.RowIndex" columnId="@item.Index.ColumnIndex" src="~/images/@item.Figure.Photo" alt="@item.Figure.Name" />
+
+            }
         </div>
     </div>
 </div>

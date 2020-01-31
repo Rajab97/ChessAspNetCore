@@ -79,7 +79,7 @@ using ChessWebAspNetCore.Models;
                         ");
             EndContext();
             BeginContext(487, 125, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9809fafaad82480ca93d2a654ee67dd4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6fde13751a2e4dadb522cb0d6dee2484", async() => {
                 BeginContext(574, 34, true);
                 WriteLiteral("<i class=\"far fa-plus-square\"></i>");
                 EndContext();
@@ -144,7 +144,7 @@ WriteAttributeValue("", 1294, direction.Id, 1294, 13, false);
             WriteLiteral("</span></th>\r\n\r\n                                        <td class=\"centeredContainer\" style=\"width:25%;\">\r\n                                            <div class=\"centeredElement\">\r\n                                                ");
             EndContext();
             BeginContext(1687, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e4d9b65552724cd9ba2551ffb855de56", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b5d6fcf6a0234d9185d60199b067118f", async() => {
                 BeginContext(1791, 43, true);
                 WriteLiteral("<i class=\"fas fa-edit centeredElement\"></i>");
                 EndContext();
@@ -180,7 +180,7 @@ WriteAttributeValue("", 1294, direction.Id, 1294, 13, false);
             WriteLiteral("\r\n                                                ");
             EndContext();
             BeginContext(1888, 157, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "baa4493ed95f4dad9611396b4a24c00f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5086b8b8740543dcb07069d283af8669", async() => {
                 BeginContext(1993, 48, true);
                 WriteLiteral("<i class=\"fas fa-trash-alt centeredElement\"></i>");
                 EndContext();

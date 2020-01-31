@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ChessWebAspNetCore.Models;
 using ChessWebAspNetCore.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChessWebAspNetCore.Controllers
 {
@@ -19,9 +20,9 @@ namespace ChessWebAspNetCore.Controllers
         {
             GameIndexDto gameIndexDto = new GameIndexDto();
             gameIndexDto.Figures = _context.Figures;
-
-
-            return View(gameIndexDto);
+            gameIndexDto.FigureToIndixes = _context.FigureToIndex.Include(m => m.Figure).Include(m => m.Index);
+            List<FigureToIndex> aw = gameIndexDto.FigureToIndixes.ToList();
+             return View(gameIndexDto);
         }
     }
 }

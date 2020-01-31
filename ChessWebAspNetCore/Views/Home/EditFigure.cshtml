@@ -29,17 +29,17 @@
                                 </div>
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
-                                <form asp-action="EditFigure" method="post" enctype="multipart/form-data" class="editFigure">
+                                <form asp-action="EditFigure" method="post" enctype="multipart/form-data" class="editFigure row FigureForm">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <input type="hidden" asp-for="Id" />
                                     <input type="hidden" asp-for="PreviousPhoto" />
-                                    <div class="form-group">
+                                    <div class="form-group col-md-12">
 
                                         <label asp-for="Name" class="control-label"></label>
                                         <input asp-for="Name" class="form-control" />
                                         <span asp-validation-for="Name" class="text-danger"></span>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-md-12">
                                         <label asp-for="Photo" class="control-label"></label>
                                         <div class="inputFileContainer clearfix">
                                             <input type="file" asp-for="Photo" value="" hidden />
@@ -50,64 +50,105 @@
                                         </div>
                                         <span asp-validation-for="Photo" class="text-danger"></span>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="clearfix">
-                                                <label class="control-label">Directions</label>
-                                                @*<a class="btn btn-primary right addDirection" data-figure-Id="@Model.Figures.Id" style="margin-bottom:5px;"><i class="far fa-plus-square"></i></a>*@
-                                            </div>
-
-                                            <table class="table table-bordered directionTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col" style="width:75%;">Name</th>
-                                                        <th scope="col" style="width:25%;">Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row" class="centeredContainer">
-                                                            <select class="form-control availableDirections">
-                                                                <option>Choose</option>
-                                                                @if (Model.AvailableDirection != null)
-                                                                {
-                                                                    @foreach (Directions item in Model.AvailableDirection)
-                                                                    {
-                                                                        <option value="@item.Id">@item.Name</option>
-                                                                    }
-                                                                }
-
-                                                            </select>
-                                                        </th>
-
-                                                        <td class="centeredContainer" style="padding:25px 0px;">
-
-                                                            <a class="btn btn-primary addDirection centeredElement">Add</a>
-
-                                                        </td>
-                                                    </tr>
-                                                    @if (Model.FigureToDirections != null)
-                                                    {
-                                                        foreach (FigureToDirections figure in Model.FigureToDirections)
-                                                        {
-                                                            <tr figureId="@figure.Direction.Id">
-                                                                <th scope="row" class="centeredContainer"><span class="centeredElement">@figure.Direction.Name</span></th>
-
-                                                                <td class="centeredContainer" style="padding:25px 0px;">
-
-                                                                    <a class="btn btn-danger deleteDirection centeredElement" data-direction-id="@figure.DirectionId"><i class="fas fa-trash-alt"></i></a>
-
-                                                                </td>
-                                                            </tr>
-                                                        }
-                                                    }
-
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                    <div class="form-group col-md-5">
+                                        <label for="RowIndex">Row index</label>
+                                        <input type="number" class="form-control" id="RowIndex" placeholder="Row index">
                                     </div>
-                                    <div class="form-group formMainButtons">
-                                        <input type="submit" value="Save" class="btn btn-success" />
+                                    <div class="form-group col-md-5">
+                                        <label for="ColumnIndex">Column index</label>
+                                        <input type="number" class="form-control" id="ColumnIndex" placeholder="Column index">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label style="display:block; margin-bottom:3px;">Add</label>
+                                        <a href="#" class="btn btn-primary right AddIndexToFigure" @*style="width:100%;" *@>Add</a>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered AddedIndexesTable">
+                                            <thead>
+                                                <tr>
+
+                                                    <th scope="col">Row</th>
+                                                    <th scope="col">Column</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if (Model.AvailableTableIndexes != null)
+                                                {
+                                                    foreach (TableIndexes item in Model.AvailableTableIndexes)
+                                                    {
+                                                        <tr rowId="@item.Id" rowIndex="@item.RowIndex" columnIndex="@item.ColumnIndex">
+                                                            <td style="text-align:center;" class="centeredContainer"><span class="centeredElement">@item.RowIndex</span></td>
+                                                            <td style="text-align:center;" class="centeredContainer"><span class="centeredElement">@item.ColumnIndex</span></td>
+                                                            <td class="centeredContainer" style="padding:25px 0px;"><a href="#" class="RemoveIndex centeredElement btn btn-danger">Remove</a></td>
+                                                        </tr>
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="clearfix">
+                                                    <label class="control-label">Directions</label>
+                                                    @*<a class="btn btn-primary right addDirection" data-figure-Id="@Model.Figures.Id" style="margin-bottom:5px;"><i class="far fa-plus-square"></i></a>*@
+                                                </div>
+
+                                                <table class="table table-bordered directionTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" style="width:75%;">Name</th>
+                                                            <th scope="col" style="width:25%;">Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row" class="centeredContainer">
+                                                                <select class="form-control availableDirections">
+                                                                    <option>Choose</option>
+                                                                    @if (Model.AvailableDirection != null)
+                                                                    {
+                                                                        @foreach (Directions item in Model.AvailableDirection)
+                                                                        {
+                                                                            <option value="@item.Id">@item.Name</option>
+                                                                        }
+                                                                    }
+
+                                                                </select>
+                                                            </th>
+
+                                                            <td class="centeredContainer" style="padding:25px 0px;">
+
+                                                                <a class="btn btn-primary addDirection centeredElement">Add</a>
+
+                                                            </td>
+                                                        </tr>
+                                                        @if (Model.FigureToDirections != null)
+                                                        {
+                                                            foreach (FigureToDirections figure in Model.FigureToDirections)
+                                                            {
+                                                                <tr figureId="@figure.Direction.Id">
+                                                                    <th scope="row" class="centeredContainer"><span class="centeredElement">@figure.Direction.Name</span></th>
+
+                                                                    <td class="centeredContainer" style="padding:25px 0px;">
+
+                                                                        <a class="btn btn-danger deleteDirection centeredElement" data-direction-id="@figure.DirectionId"><i class="fas fa-trash-alt"></i></a>
+
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                        }
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group formMainButtons col-md-12 clearfix">
+                                        <input type="submit" value="Save" class="btn btn-success right" />
                                     </div>
                                 </form>
                             </div>
@@ -155,7 +196,7 @@
 
 
         </script>*@
-
+    <script src="~/js/CreateFigure.js"></script>
 }
 
 

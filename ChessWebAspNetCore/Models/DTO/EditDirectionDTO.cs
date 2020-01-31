@@ -13,7 +13,7 @@ namespace ChessWebAspNetCore.Models.DTO
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
-
+       
         public IEnumerable<int> Descriptions { get; set; }
         public IEnumerable<DirectionDescription> AvailableDescriptions { get; set; }
         public IEnumerable<DirectionToDescription> DirectionToDescriptions { get; set; }

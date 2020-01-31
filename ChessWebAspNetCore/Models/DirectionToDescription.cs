@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChessWebAspNetCore.Models
 {
@@ -11,11 +9,7 @@ namespace ChessWebAspNetCore.Models
         public int DirectionId { get; set; }
         public int DescriptionId { get; set; }
 
-        [ForeignKey("DescriptionId")]
-        [InverseProperty("DirectionToDescription")]
         public DirectionDescription Description { get; set; }
-        [ForeignKey("DirectionId")]
-        [InverseProperty("DirectionToDescription")]
         public Directions Direction { get; set; }
     }
 }

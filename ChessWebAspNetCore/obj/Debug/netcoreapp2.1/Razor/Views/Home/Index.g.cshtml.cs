@@ -83,7 +83,7 @@ using ChessWebAspNetCore.Models.ViewModels;
                 ");
             EndContext();
             BeginContext(387, 131, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3cd6e33c58740a8a708df3c73e4a856", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a577db334d940b581bf61254975ad77", async() => {
                 BeginContext(480, 34, true);
                 WriteLiteral("<i class=\"far fa-plus-square\"></i>");
                 EndContext();
@@ -149,7 +149,7 @@ WriteAttributeValue("", 1123, figure.Id, 1123, 10, false);
             WriteLiteral("</span></th>\r\n                                <td>");
             EndContext();
             BeginContext(1303, 105, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5432ebba00074a6a929deef0f0f394d4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "907a9c3605904881a1298148396f4f0b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -183,7 +183,7 @@ AddHtmlAttributeValue("", 1392, figure.Name, 1392, 12, false);
             WriteLiteral("</td>\r\n                                <td class=\"centeredContainer\">\r\n                                    <div class=\"centeredElement\">\r\n                                        ");
             EndContext();
             BeginContext(1586, 154, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "98a68eff091c465ea0368d717969241e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b49330b77dcd48569952ef27820039fe", async() => {
                 BeginContext(1693, 43, true);
                 WriteLiteral("<i class=\"fas fa-edit centeredElement\"></i>");
                 EndContext();
@@ -219,7 +219,7 @@ AddHtmlAttributeValue("", 1392, figure.Name, 1392, 12, false);
             WriteLiteral("\r\n                                        ");
             EndContext();
             BeginContext(1782, 160, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a64105fbefb49a49a63be9eac77f6b0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8e08902280e4fa08cd37bfb9ed2511b", async() => {
                 BeginContext(1890, 48, true);
                 WriteLiteral("<i class=\"fas fa-trash-alt centeredElement\"></i>");
                 EndContext();

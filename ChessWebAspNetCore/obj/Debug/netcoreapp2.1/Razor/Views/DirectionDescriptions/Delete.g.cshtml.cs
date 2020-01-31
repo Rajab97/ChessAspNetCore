@@ -70,7 +70,7 @@ using ChessWebAspNetCore.Models;
             WriteLiteral("\r\n<h2>");
             EndContext();
             BeginContext(152, 92, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3199e660b9e64e8b8c168a7eaf025723", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4d774b1e27f04281a29cb326664fe062", async() => {
                 BeginContext(200, 40, true);
                 WriteLiteral("<i class=\"fas fa-angle-double-left\"></i>");
                 EndContext();
@@ -173,12 +173,12 @@ using ChessWebAspNetCore.Models;
             WriteLiteral("\r\n        </dd>\r\n      \r\n    </dl>\r\n    \r\n    ");
             EndContext();
             BeginContext(1070, 157, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fed0cf8e6d264541a789198829db1aad", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7af37e72a72642a481062dc0e5c0ff27", async() => {
                 BeginContext(1096, 10, true);
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(1106, 36, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7056bcbe33c14f6f8b07a39235c411af", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d0337c04e7ae47d297d561a1ac98b508", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

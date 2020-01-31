@@ -9,6 +9,8 @@ namespace ChessWebAspNetCore.Helpers
     {
 
         public int Id { get; set; }
+        public int itemId { get; set; }
+        public bool WhiteOrBlack { get; set; }
         public FigureIndex Properties { get; set; }
 
        

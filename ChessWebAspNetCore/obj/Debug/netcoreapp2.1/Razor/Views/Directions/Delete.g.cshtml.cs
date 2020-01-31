@@ -70,7 +70,7 @@ using ChessWebAspNetCore.Models;
             WriteLiteral("\r\n<h2>");
             EndContext();
             BeginContext(142, 92, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b42e4a3e0784c00a81ab1652f4cd5ea", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b4bbd3b00b9499e8a29d061b6264d62", async() => {
                 BeginContext(190, 40, true);
                 WriteLiteral("<i class=\"fas fa-angle-double-left\"></i>");
                 EndContext();
@@ -113,12 +113,12 @@ using ChessWebAspNetCore.Models;
             WriteLiteral("</span></p>\r\n     \r\n    ");
             EndContext();
             BeginContext(520, 156, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "004eaa6315514795b18fd120b349837d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6f02286143df4c79aeb2f01f9449a7f1", async() => {
                 BeginContext(546, 10, true);
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(556, 36, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2bef8c232ce84eb7bfea83010d6fc4ee", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "35ae210b7a27400b9938bb948d69b9f1", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

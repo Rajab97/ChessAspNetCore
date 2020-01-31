@@ -22,17 +22,23 @@ namespace ChessWebAspNetCore.Controllers.API
             try
             {
                 ChessGameOutput chessGameOutput = new ChessGameOutput();
-                FigureIndex figureIndex = input.ChessFigures.FirstOrDefault(m => m.Id == input.CurrentFigureId).Properties;
-                PlayChess playChess = new PlayChess(_context, input.CurrentFigureId, figureIndex);
-                chessGameOutput.PossibleIndexes = playChess.GetPossibleIndexesInChessTable();
-                JsonResult jsonResult = new JsonResult(chessGameOutput);
-                return jsonResult;
+                ChessFigure chessFigure = input.ChessFigures.FirstOrDefault(m => m.itemId == input.CurrentItemId);
+                if (chessFigure != null)
+                {
+                    FigureIndex figureIndex = chessFigure.Properties;
+                    PlayChess playChess = new PlayChess(_context, input);
+                    chessGameOutput.PossibleIndexes = playChess.GetPossibleIndexesInChessTable();
+                    JsonResult jsonResult = new JsonResult(chessGameOutput);
+                    return jsonResult;
+                }
+                return null;
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
+      
         public ChessGameController(ChessGameContext context)
         {
             _context = context;

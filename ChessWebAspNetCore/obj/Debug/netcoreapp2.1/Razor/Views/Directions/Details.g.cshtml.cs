@@ -85,7 +85,7 @@ using ChessWebAspNetCore.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(429, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "182b45af8bcb4006865fff3bc3b89b3f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00cde58f342442c8b83a5f6513c388aa", async() => {
                 BeginContext(475, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -120,7 +120,7 @@ using ChessWebAspNetCore.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(491, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "388da3f82bc74d998d082bd6f3e38061", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1ec6033b930d4376bf268d8c82b6d9dc", async() => {
                 BeginContext(513, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();
